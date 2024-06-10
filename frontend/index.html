@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>FileCloud</title>
+</head>
+<body>
+    <div id="container">
+        <div class="maintitle">
+            <h2>創建您的檔案吧!</h2>
+        </div>
+        <form class="form" >
+            <div  class="formitem">
+                <label for="name">檔案名稱: </label>
+                <input id="filename" type="text" >
+            </div>  
+            <div id="filetype" class="formitem">
+                <label for="name">檔案類型: </label>
+                <select id="selectItem" >
+                    <option value="圖片檔">圖片檔</option>
+                    <option value="影片檔">影片檔</option>
+                    <option value="聲音檔">聲音檔</option>
+                </select>
+            </div>
+            <div  class="fileupload">
+                <input type="file" id="uploadbtn" >
+                <label for="uploadbtn" ><i class="fa-solid fa-upload"></i>檔案上傳</label>
+                <span id="file-name"></span>
+            </div>
+            <div id="formsubmit" class="formitem">
+                <button id="submitBtn" type="button">上傳</button>
+            </div>
+        </form>
+        <div  class="page">
+            <a href="/FileCloudProject/frontend/list.html"><i class="fa-solid fa-door-open"></i>前往儲存庫</a>
+         </div>
+    </div>
+    
+
+</body>
+<script>
+    
+    document.getElementById('uploadbtn').addEventListener('change', function() {
+            const fileName = this.files[0] ? this.files[0].name : '未選擇文件';
+            document.getElementById('file-name').textContent = fileName;
+        });
+        document.getElementById('submitBtn').addEventListener('click', function() {
+        const filename = document.getElementById('filename').value;
+        const fileType = document.getElementById('selectItem').value;
+        const file = document.getElementById('uploadbtn').files[0];
+
+        const formData = new FormData();
+        formData.append("fileName", filename);
+        formData.append("fileType", fileType);
+        formData.append("fileUrl", file);
+
+        $.ajax({
+            url: "http://localhost:8080/fileapi/createfile",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: formData,
+            success: function(data) {
+                console.log("資料儲存成功", data);
+                $("#filename, #selectItem").val('');
+                $("#uploadbtn").val(null);
+                $('#file-name').text('');
+            },
+            error: function(error) {
+                console.error("資料儲存失敗", error);
+            }
+        });
+    });
+</script>
+</html>

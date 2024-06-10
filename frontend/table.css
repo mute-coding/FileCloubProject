@@ -1,0 +1,85 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #2c3e50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.container{
+    max-width: 1440px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.container h2{
+    padding: 2rem 1rem;
+    font-size: 2.5rem;
+    text-align: center;
+}
+.tbl{
+    width: 100%;
+    border-collapse: collapse;
+}
+.tbl thead{
+    background: #1E90FF;
+    color: #fff;
+}
+.tbl thead tr th{
+    font-size: 1.2rem;
+    padding: 0.8rem;
+    letter-spacing: 0.2rem;
+    vertical-align: top;
+    border: 1px solid #aab7b8;
+}
+.tbl tbody tr td{
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    font-weight: normal;
+    text-align: center;
+    border: 1px solid #aab7b8;
+    padding: 0.8rem;
+}
+.tbl tr:nth-child(even){
+    background: #ccc;
+
+}
+.tbl tr:hover td{
+    background: #839192;
+    color: #000;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+.tbl button{
+    display: inline-block;
+    border: none;
+    margin: 1.5px;
+    padding: 0.4rem;
+    border-radius: 1px;
+    outline: none;
+    cursor: pointer;
+}
+.btn_previwe{
+    background: #1E90FF;
+    color: #fff;
+    border-radius: 1px;
+}
+.btn_pen{
+    background: #e74c3c;
+    color: #fff;
+    border-radius: 1px;
+}
+.btn_download{
+    background: #1e8449;
+    color: #fff;
+    border-radius: 1px;
+}
+.btn_trash{
+    background: #FF8C00;
+    color: #fff;
+    border-radius: 1px;
+}

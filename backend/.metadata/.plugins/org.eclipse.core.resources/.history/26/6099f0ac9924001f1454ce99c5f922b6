@@ -1,0 +1,13 @@
+package com.filecloud.api;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class FileCloudApiApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}

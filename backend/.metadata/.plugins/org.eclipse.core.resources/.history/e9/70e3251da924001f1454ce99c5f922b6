@@ -1,0 +1,20 @@
+package com.filecloud.api.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.filecloud.api.model.FileItem;
+import com.filecloud.api.repository.FileItemRepository;
+
+@Service
+public class FileItemSrevice {
+	@Autowired
+	private FileItemRepository fileItemRepository;
+	void createFileItem(String fileName,String fileType,String fileUrl) {
+		FileItem fileItem = new FileItem();
+		fileItem.setFileName(fileName);
+		fileItem.setFileType(fileType);
+		fileItem.setFileUrl(fileUrl);
+		fileItemRepository.addFileItem(fileItem);
+	}
+}
