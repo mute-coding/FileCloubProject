@@ -24,12 +24,15 @@ public class FileItemSrevice {
 		fileItem.setFileType(fileType);
 		//fileItem.setFileUrl(fileUrl);
         // 將文件上傳到指定目錄
-        String originalFileName = fileUrl.getOriginalFilename();
-        File dest = new File(uploadDir + "/" + originalFileName);
-        fileUrl.transferTo(dest);
+		 String originalFileName = fileUrl.getOriginalFilename();
+	     File dest = new File(uploadDir + "/" + originalFileName);
+	     fileUrl.transferTo(dest);
         // 將檔案路徑存至資料庫
-        fileItem.setFileUrl(dest.getAbsolutePath()); 
-        fileItemRepository.addFileItem(fileItem);
+	     fileItem.setFileUrl(dest.getAbsolutePath());
+	     int result = fileItemRepository.addFileItem(fileItem);
+	     if (result != 1) {
+	            throw new RuntimeException("Failed to insert file item into database.");
+	        }
 	}
 	public List<FileItem> getALL(){
 		return fileItemRepository.getALL();
@@ -44,6 +47,7 @@ public class FileItemSrevice {
 	public List<FileItem> getFileName(Integer id){
 		return fileItemRepository.getFileName(id);
 	}
+
 	/*
 	public void fileDownload() {
 		

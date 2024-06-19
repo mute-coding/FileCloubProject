@@ -106,7 +106,7 @@ input[type="file"]{
 }
 #container .page{
     display: flex;
-    justify-content: end !important;
+    justify-content: end ;
     background-color: #1E90FF;
     text-align: center;
     width: 150px;
@@ -116,4 +116,5 @@ input[type="file"]{
     color: #fff;
     text-decoration:none;
 }
+
 

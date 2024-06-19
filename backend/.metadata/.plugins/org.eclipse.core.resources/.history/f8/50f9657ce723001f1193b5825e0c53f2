@@ -1,5 +1,0 @@
-package com.filecloud.api.repository;
-
-public interface FileItemRepository {
-
-}

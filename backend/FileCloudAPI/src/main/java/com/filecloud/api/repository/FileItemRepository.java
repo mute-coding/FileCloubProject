@@ -16,13 +16,14 @@ import com.filecloud.api.model.FileItem;
 public interface FileItemRepository {
 	@Insert("INSERT INTO FileList (FileName,FileType,FileUrl) VALUES (#{FileName},#{FileType},#{FileUrl})")
 	@Options(useGeneratedKeys = true,keyProperty = "id")
-	FileItem addFileItem(FileItem fileItem);
+	int addFileItem(FileItem fileItem);
 	@Select("SELECT * FROM FileList")
 	List<FileItem> getALL();
 	@Delete("DELETE FROM FileList WHERE id = #{id} ")
 	void deleteItem(Integer id);
 	@Update("UPDATE FileList SET FileName = #{FileName} WHERE id = #{id}")
-	void updateFileName(@Param("id") Integer id, @Param("FileName") String fileName);
+	int updateFileName(@Param("id") Integer id, @Param("FileName") String fileName);
 	@Select("SELECT * FROM FileList WHERE id = #{id}")
 	List<FileItem> getFileName(@Param("id") Integer id) ;
+
 }
