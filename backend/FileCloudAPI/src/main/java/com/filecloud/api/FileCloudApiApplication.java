@@ -12,16 +12,6 @@ public class FileCloudApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FileCloudApiApplication.class, args);
 	}
-    @Bean
-    WebMvcConfigurer configurer() {
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry reg) {
-				reg.addMapping("/**")
-				.allowedOrigins("*")
-				.allowedMethods("GET", "POST", "PUT", "DELETE");
-			}
-		};
-	}
+
 
 }

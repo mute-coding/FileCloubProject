@@ -20,7 +20,7 @@ public interface FileItemRepository {
 	@Select("SELECT * FROM FileList")
 	List<FileItem> getALL();
 	@Delete("DELETE FROM FileList WHERE id = #{id} ")
-	void deleteItem(Integer id);
+	int deleteItem(Integer id);
 	@Update("UPDATE FileList SET FileName = #{FileName} WHERE id = #{id}")
 	int updateFileName(@Param("id") Integer id, @Param("FileName") String fileName);
 	@Select("SELECT * FROM FileList WHERE id = #{id}")
