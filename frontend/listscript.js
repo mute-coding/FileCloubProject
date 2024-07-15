@@ -3,6 +3,7 @@ $(document).ready(function() {
     var dialog02 = document.querySelector('.dialog02');
     var overlay = document.querySelector('.overlay');
     var selectedFileId; // 全局變數來儲存選中的 fileid
+    var selectedFileNAME; 
     // 載入資料庫資料
     $.ajax({
         url: "http://localhost:8080/fileapi/getall",
@@ -20,7 +21,7 @@ $(document).ready(function() {
                     '<td><button class="btn_previwe">檔案預覽</button></td>' +
                     '<td>' +
                     '<button class="btn_pen" data-id="' + file.id + '"><i class="fa-solid fa-pen-to-square"></i></button>' +
-                    '<button class="btn_download"><i class="fa-solid fa-download"></i></button>' +
+                    '<button class="btn_download" data-id="' + file.fileName + '"><i class="fa-solid fa-download"></i></button>' +
                     '<button class="btn_trash" data-id="' + file.id + '"><i class="fa-solid fa-trash"></i></button>' +
                     '</td>' +
                     '<td>test2</td>' +
@@ -85,6 +86,19 @@ $(document).ready(function() {
             $(".closeDialogBtn").click(function() {
                 dialog.style.display = 'none';
                 overlay.style.display = 'none';
+            });
+            //串接下載功能的API
+            $(".btn_download").click(function() {
+                selectedFileNAME = $(this).data('id');  // 使用 data('id') 获取文件名
+                var downloadUrl = "http://localhost:8080/fileapi/downloadFile/" + selectedFileNAME;
+                
+                // 創建一個隱藏的a標籤
+                var a = document.createElement('a');
+                a.href = downloadUrl;
+                a.download = selectedFileNAME;  
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
             });
         },
         error: function(error) {

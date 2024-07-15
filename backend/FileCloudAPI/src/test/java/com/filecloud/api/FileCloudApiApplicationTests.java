@@ -36,6 +36,6 @@ class FileCloudApiApplicationTests {
 */
 	@Test
 	public List<FileItem> getALL(){
-		return fileItemRepository.getALL();
+		return fileItemRepository.getAll();
 	}
 }
