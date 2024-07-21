@@ -2,6 +2,7 @@ $(document).ready(function() {
     var dialog = document.querySelector('.dialog');
     var dialog02 = document.querySelector('.dialog02');
     var overlay = document.querySelector('.overlay');
+    var imgElement = dialog.querySelector('.videoPeth'); // 获取 img 元素
     var selectedFileId; // 全局變數來儲存選中的 fileid
     var selectedFileNAME; 
     // 載入資料庫資料
@@ -18,7 +19,7 @@ $(document).ready(function() {
                     '<td>' + file.id + '</td>' +
                     '<td>' + file.fileName + '</td>' +
                     '<td>' + file.fileType + '</td>' +
-                    '<td><button class="btn_previwe">檔案預覽</button></td>' +
+                    '<td><button class="btn_previwe" data-id="' + file.fileName + '">檔案預覽</button></td>' +
                     '<td>' +
                     '<button class="btn_pen" data-id="' + file.id + '"><i class="fa-solid fa-pen-to-square"></i></button>' +
                     '<button class="btn_download" data-id="' + file.fileName + '"><i class="fa-solid fa-download"></i></button>' +
@@ -80,9 +81,25 @@ $(document).ready(function() {
             // 綁定儲存修改按鈕的點擊事件
 
             $(".btn_previwe").click(function() {
-                dialog.style.display = 'block';
-                overlay.style.display = 'block';
+                selectedFileNAME = $(this).data('id');
+                $.ajax({
+                    url:'http://localhost:8080/fileapi/image/'+selectedFileNAME,
+                    method: 'GET',
+                    xhrFields: {
+                        responseType: 'blob'  //使用blob處理數據
+                    },
+                    success: function(data) {
+                        var url = URL.createObjectURL(data);
+                        $('.videoPeth').attr('src', url);
+                        $('.dialog').show();
+                        $('.overlay').show();
+                    },
+                    error: function() {
+                        alert('Error loading image');
+                    }
+                })
             });
+
             $(".closeDialogBtn").click(function() {
                 dialog.style.display = 'none';
                 overlay.style.display = 'none';
@@ -99,6 +116,9 @@ $(document).ready(function() {
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
+            });
+            $(".btn_download").click(function() {
+               
             });
         },
         error: function(error) {

@@ -6,7 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -29,13 +29,15 @@ import org.springframework.web.multipart.MultipartFile;
 import com.filecloud.api.model.FileItem;
 import com.filecloud.api.service.FileItemService;
 
+import jakarta.annotation.PostConstruct;
+
 
 @RestController
 @RequestMapping("/fileapi")
 public class WEBController {
 	@Autowired
 	private FileItemService fileItemService;
-
+	 private final Path imageLocation = Paths.get("/FileCloudProject/backend/FileCloudAPI/mediafile");
 	  @PostMapping("/createfile")
 	  public ResponseEntity<String> addFileItem(@RequestParam("fileName") String fileName, 
 												@RequestParam("fileType") String fileType, 
@@ -90,14 +92,33 @@ public class WEBController {
 	                .header(HttpHeaders.CONTENT_DISPOSITION, headerValue)
 	                .body(resource);       
 	  }
-	  @GetMapping("/getfileurl/{id}")
-	  public ResponseEntity<FileItem> getFileUrlById(@PathVariable Integer id){
-		  FileItem fileItem = fileItemService.getFileUrlbyId(id);
-		  if (fileItem != null) {
-	            return ResponseEntity.ok(fileItem);
-	        } else {
-	            return ResponseEntity.notFound().build();
+	  @PostConstruct
+	    public void init() {
+	        System.out.println("Image location path: " + imageLocation.toAbsolutePath().toString());
+	    }
+
+	  @GetMapping("/image/{filename}")
+	    public ResponseEntity<Resource> getImage(@PathVariable String filename) {
+		  try {
+	            Resource resource = fileItemService.getImageResource(filename);
+
+	            if (resource != null) {
+	                String contentType = Files.probeContentType(Paths.get(resource.getURI()));
+	                if (contentType == null) {
+	                    contentType = "application/octet-stream";
+	                }
+
+	                return ResponseEntity.ok()
+	                        .contentType(MediaType.parseMediaType(contentType))
+	                        .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
+	                        .body(resource);
+	            } else {
+	                return ResponseEntity.notFound().build();
+	            }
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	            return ResponseEntity.badRequest().build();
 	        }
-	  }
+	    }
 
 }

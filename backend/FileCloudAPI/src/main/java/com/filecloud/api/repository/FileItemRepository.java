@@ -32,7 +32,6 @@ public interface FileItemRepository {
 
 	    @Select("SELECT * FROM FileList WHERE fileName = #{fileName}")
 	    FileItem findFileItemByName(@Param("fileName") String fileName);
-	    @Select("SELECT FileUrl FROM FileList WHERE id = #{id}")
-	    FileItem getFileUrlbyId(@Param("id") Integer id);
+
 	
 }

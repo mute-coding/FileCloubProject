@@ -24,7 +24,8 @@ import org.springframework.util.StringUtils;
 
 @Service
 public class FileItemService {
-	 private Path foundFile;
+	  private Path foundFile;
+	  private final Path imageLocation = Paths.get("/FileCloudProject/backend/FileCloudAPI/mediafile");
 	@Autowired
 	private FileItemRepository fileItemRepository;
 	public void createFileItem(String fileName,String fileType,MultipartFile fileUrl)throws IOException {
@@ -84,8 +85,19 @@ public class FileItemService {
 	        }
 		return null;
 	}
-	public FileItem getFileUrlbyId(Integer id) {
-		return fileItemRepository.getFileUrlbyId(id);
-	}
+	 public Resource getImageResource(String filename) throws IOException {
+	        Path filePath = imageLocation.resolve(filename).normalize();
+	        String normalizedPath = filePath.toString().replace("\\", "/");
+	        System.out.println("Requested file path: " + normalizedPath);
+
+	        Resource resource = new UrlResource("file:" + normalizedPath);
+
+	        if (resource.exists() && resource.isReadable()) {
+	            return resource;
+	        } else {
+	            System.out.println("File not found or not readable: " + normalizedPath);
+	            return null;
+	        }
+	    }
 
 }
