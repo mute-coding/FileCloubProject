@@ -48,7 +48,13 @@
 		    <artifactId>mybatis-spring-boot-starter</artifactId>
 		    <version>3.0.3</version>
 		</dependency>
-		
+		  <!-- Spring Boot Starter Security -->
+	    <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-security</artifactId>
+	    </dependency>
+
+
 	</dependencies>
 
 	<build>

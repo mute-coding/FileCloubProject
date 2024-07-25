@@ -1,0 +1,5 @@
+package com.filecloud.api.config;
+
+public class WebSecurityConfiguration {
+
+}

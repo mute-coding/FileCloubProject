@@ -1,0 +1,20 @@
+package com.filecloud.api.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.filecloud.api.model.LoginModel;
+import com.filecloud.api.repository.LoginRepository;
+
+@Service
+public class LoginService {
+	@Autowired
+	private LoginRepository loginRepository;
+	 @Autowired
+	  private PasswordEncoder passwordEncoder;
+	  public int createUser(LoginModel loginModel) {
+		  loginModel.setUserPassword(passwordEncoder.encode(loginModel.getUserPassword()));
+	        return loginRepository.createUser(loginModel);
+	    }
+}

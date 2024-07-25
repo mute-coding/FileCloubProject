@@ -1,0 +1,56 @@
+package com.filecloud.api.config;
+
+import java.util.Collection;
+import java.util.Collections;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.filecloud.api.model.LoginModel;
+
+public class UserAuthority implements  UserDetails {
+
+    private final LoginModel loginModel;
+
+    public UserAuthority(LoginModel loginModel) {
+        this.loginModel = loginModel;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        // 假設用戶只有一個角色 "USER"
+        return Collections.singletonList(new SimpleGrantedAuthority("USER"));
+    }
+
+    @Override
+    public String getPassword() {
+        return loginModel.getUserPassword();
+    }
+
+    @Override
+    public String getUsername() {
+        return loginModel.getUserName();
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true; // 設置為 true 表示帳戶不過期
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true; // 設置為 true 表示帳戶不鎖定
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true; // 設置為 true 表示憑證不過期
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true; // 設置為 true 表示帳戶已啟用
+    }
+
+}

@@ -1,0 +1,16 @@
+package com.filecloud.api.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.filecloud.api.model.LoginModel;
+import com.filecloud.api.repository.LoginRepository;
+
+@Service
+public class LoginService {
+	@Autowired
+	private LoginRepository loginRepository;
+	  public int createUser(LoginModel loginModel) {
+	        return loginRepository.createUser(loginModel);
+	    }
+}

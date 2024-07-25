@@ -1,0 +1,17 @@
+package com.filecloud.api.repository;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Select;
+
+import com.filecloud.api.model.LoginModel;
+@Mapper
+public interface LoginRepository {
+	@Insert("INSERT INTO login_list(user_name,user_key,user_password) VALUES(#{userName},#{userKey},#{userPassword}) ")
+	@Options(useGeneratedKeys = true, keyProperty = "id")
+	int createUser(LoginModel loginModel);
+	@Select("SELECT * FROM login_list WHERE user_name = #{userName}")
+	LoginModel findByUsername(String userName);
+
+}

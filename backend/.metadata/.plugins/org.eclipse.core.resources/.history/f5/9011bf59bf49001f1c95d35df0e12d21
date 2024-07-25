@@ -1,0 +1,25 @@
+package com.filecloud.api.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import com.filecloud.api.model.LoginModel;
+import com.filecloud.api.repository.LoginRepository;
+
+public class UserAuthorityService implements UserDetailsService {
+
+	 @Autowired
+	    private LoginRepository loginRepository;
+
+	    @Override
+	    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	        LoginModel loginModel = loginRepository.findByUsername(username);
+	        if (loginModel == null) {
+	            throw new UsernameNotFoundException("User not found with username: " + username);
+	        }
+	        return new UserAuthority(loginModel);
+	    }
+
+}
