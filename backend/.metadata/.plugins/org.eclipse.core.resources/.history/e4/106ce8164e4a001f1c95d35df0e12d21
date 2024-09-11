@@ -1,5 +1,0 @@
-package com.filecloud.api.controller;
-
-public class LoginController {
-
-}

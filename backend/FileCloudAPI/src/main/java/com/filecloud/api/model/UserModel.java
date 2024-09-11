@@ -2,45 +2,47 @@ package com.filecloud.api.model;
 
 public class UserModel {
 	private int id;
-	private String userName;
-	private String userPassword;
-	private String role;
+	private String username;
+	private String password;
+	private String email;
+	private String sessionID;
 	public UserModel() {}
-	public UserModel(int id, String userName, String userPassword, String role) {
-		super();
+	public UserModel(int id,String username,String password,String email,String sessionID) {
 		this.id = id;
-		this.userName = userName;
-		this.userPassword = userPassword;
-		this.role = role;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.sessionID = sessionID;
 	}
-	public int getId() {
+	public int getID() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setID(int id) {
 		this.id = id;
 	}
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public String getUserPassword() {
-		return userPassword;
+	public String getPassword() {
+		return password;
 	}
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public String getRole() {
-		return role;
+	public String getEmail() {
+		return email;
 	}
-	public void setRole(String role) {
-		this.role = role;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	@Override
-	public String toString() {
-		return "UserModel [id=" + id + ", userName=" + userName + ", userPassword=" + userPassword + ", role=" + role
-				+ "]";
+	public String getSessionID() {
+		return sessionID;
+	}
+	public void setSessionID(String sessionID) {
+		this.sessionID = sessionID;
 	}
 	
 }
