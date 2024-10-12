@@ -1,0 +1,16 @@
+package com.filecloud.api.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.filecloud.api.model.UserList;
+import com.filecloud.api.repository.UserListRepository;
+
+@Service
+public class UserListService {
+	@Autowired
+	private UserListRepository userListRepository;
+	public void createUser(UserList userList) {
+		userListRepository.createUser(userList);
+	}
+}

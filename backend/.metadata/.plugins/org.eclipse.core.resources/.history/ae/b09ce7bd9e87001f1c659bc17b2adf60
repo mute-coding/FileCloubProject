@@ -1,0 +1,10 @@
+package com.filecloud.api.model;
+
+
+
+public class UserList {
+	private int user_id;
+	private String user_name;
+	private String password ;
+	private String saltPassword;
+}
