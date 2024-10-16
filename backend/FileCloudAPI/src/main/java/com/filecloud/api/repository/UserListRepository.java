@@ -13,7 +13,6 @@ public interface UserListRepository {
 			+ "VALUES (#{user_name},#{password},#{salt},#{user_phone},#{user_email},#{isDelete},#{created_user},#{created_time},"
 			+ "#{modified_user},#{modified_time}) ")
 	void createUser(UserList userList);
-	@Select("SELECT * FROM UserList WHERE user_name = #{user_name}")
-	UserList getUserFromName(String user_name);
+
 
 }

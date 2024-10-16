@@ -9,51 +9,52 @@
     <title>FileCloud</title>
 </head>
 <body>
-    <nav>
-        <label class="logo" ><i class="fa-solid fa-cloud-arrow-up"></i></i>FileCloud</label>
-        <ul >
-            <li>
-                <a href="#" ><i class="fa-solid fa-bars"></i></a>
-                <ul class="dropdown">
-                    <li>username</li>
-                    <button>登出</button>
-                </ul>
-            </li>
-            
-        </ul>
-    </nav>
-    <div id="container">
-        <div class="maintitle">
-            <h2>創建您的檔案吧!</h2>
+  <div class="action" >
+    <div class="icon" >
+        <i class="fa-solid fa-user"></i>
+    </div>  
+  
+  <div class="menu" >
+    <ul>
+        <li ><h3 class="userTitle">帳戶名稱:</h3></li>
+        <li ><p class="userName">rainey1127</p></li>
+        <li><button class="editProfile" >修改會員資料</button></li>
+        <li><button class="deleteProfile" >刪除帳戶</button></li>
+    </ul>
+  </div>
+</div>
+    <div id="mainContainer">
+        <div id="container">
+            <div class="maintitle">
+                <h2>創建您的檔案吧!</h2>
+            </div>
+            <form class="form" >
+                <div  class="formitem">
+                    <label for="name">檔案名稱: </label>
+                    <input id="filename" type="text" >
+                </div>  
+                <div id="filetype" class="formitem">
+                    <label for="name">檔案類型: </label>
+                    <select id="selectItem" >
+                        <option value="圖片檔">圖片檔</option>
+                        <option value="影片檔">影片檔</option>
+                        <option value="聲音檔">聲音檔</option>
+                    </select>
+                </div>
+                <div  class="fileupload">
+                    <input type="file" id="uploadbtn" >
+                    <label for="uploadbtn" ><i class="fa-solid fa-upload"></i>檔案上傳</label>
+                    <span id="file-name"></span>
+                </div>
+                <div id="formsubmit" class="formitem">
+                    <button id="submitBtn" type="button">上傳</button>
+                </div>
+            </form>
+            <div  class="page">
+                <a href="/FileCloudProject/frontend/list.html"><i class="fa-solid fa-door-open"></i>前往儲存庫</a>
+            </div>
         </div>
-        <form class="form" >
-            <div  class="formitem">
-                <label for="name">檔案名稱: </label>
-                <input id="filename" type="text" >
-            </div>  
-            <div id="filetype" class="formitem">
-                <label for="name">檔案類型: </label>
-                <select id="selectItem" >
-                    <option value="圖片檔">圖片檔</option>
-                    <option value="影片檔">影片檔</option>
-                    <option value="聲音檔">聲音檔</option>
-                </select>
-            </div>
-            <div  class="fileupload">
-                <input type="file" id="uploadbtn" >
-                <label for="uploadbtn" ><i class="fa-solid fa-upload"></i>檔案上傳</label>
-                <span id="file-name"></span>
-            </div>
-            <div id="formsubmit" class="formitem">
-                <button id="submitBtn" type="button">上傳</button>
-            </div>
-        </form>
-        <div  class="page">
-            <a href="/FileCloudProject/frontend/list.html"><i class="fa-solid fa-door-open"></i>前往儲存庫</a>
-         </div>
     </div>
-    
-
 </body>
 <script src="indexscript.js"></script>
 </html>
