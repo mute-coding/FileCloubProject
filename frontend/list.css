@@ -5,9 +5,13 @@
 }
 body{
     background: #2c3e50;
+}
+#tablecontainer{
+    
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
+    align-items: flex-start;
     min-height: 100vh;
 }
 .container{
@@ -15,6 +19,7 @@ body{
     width: 100%;
     background-color: #fff;
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 15vh; 
 }
 .container h2{
     padding: 2rem 1rem;
@@ -24,10 +29,14 @@ body{
 .tbl{
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 .tbl thead{
     background: #1E90FF;
     color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1; 
 }
 .tbl thead tr th{
     font-size: 1.2rem;
@@ -36,6 +45,7 @@ body{
     vertical-align: top;
     border: 1px solid #aab7b8;
 }
+
 .tbl tbody tr td{
     font-size: 1rem;
     letter-spacing: 0.2rem;

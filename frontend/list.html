@@ -5,28 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link rel="stylesheet" href="table.css">
+    <link rel="stylesheet" href="list.css">
     <title>FileCloud</title>
 </head>
 <body>
-    <div class="container">
-        <div class="tablecontainer">
-            <h2>你的檔案儲存庫</h2>
-            <table class="tbl">
-                <thead>
-                    <tr>
-                        <th>檔案編號</th>
-                        <th>檔案名稱</th>
-                        <th>檔案類型</th>
-                        <th>檔案預覽</th>
-                        <th>其他功能</th>
-                        <th>上傳日期</th>
-                    </tr>
-                </thead>
-                <tbody id="tablebody" >
-                
-                </tbody>
-            </table>
+    <div id="dialogBTNBlock">
+        <button class="dialogBTN">新增檔案</button>
+    </div>
+    <div id="tablecontainer">
+        <div class="container">
+                <h2>你的檔案儲存庫</h2>
+                <table class="tbl">
+                    <thead>
+                        <tr>
+                            <th>檔案編號</th>
+                            <th>檔案名稱</th>
+                            <th>檔案類型</th>
+                            <th>檔案預覽</th>
+                            <th>其他功能</th>
+                            <th>上傳日期</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablebody" >
+                        <!-- add javascript -->
+                    </tbody>
+                </table>
         </div>
     </div>
     <div class="dialog">
