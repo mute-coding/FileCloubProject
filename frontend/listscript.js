@@ -1,10 +1,11 @@
 $(document).ready(function() {
-    var dialog = document.querySelector('.dialog');
-    var dialog02 = document.querySelector('.dialog02');
-    var overlay = document.querySelector('.overlay');
-    var imgElement = dialog.querySelector('.videoPeth'); // 获取 img 元素
-    var selectedFileId; // 全局變數來儲存選中的 fileid
-    var selectedFileNAME; 
+    let Videodialog = document.querySelector('.Videodialog');
+    let Editdialog = document.querySelector('.Editdialog');
+    let overlay = document.querySelector('.overlay');
+    let imgElement =document.querySelector('.videoPeth'); // 獲取 img 元素
+    let Formdialog = document.querySelector('.Formdialog');
+    let selectedFileId; // 全局變數來儲存選中的 fileid
+    let selectedFileNAME; 
     // 載入資料庫資料
     $.ajax({
         url: "http://localhost:8080/fileapi/getall",
@@ -55,7 +56,7 @@ $(document).ready(function() {
                 var fileName = $(this).closest('tr').find('td:eq(1)').text();
                 $("#updateInput").val(fileName); // Set the file name to the input field
 
-                dialog02.style.display = 'block';
+                Editdialog.style.display = 'block';
                 overlay.style.display = 'block';
             });
             $(".savebtn").click(function() {     
@@ -74,7 +75,7 @@ $(document).ready(function() {
                     }
                 });
 
-                dialog02.style.display = 'none';
+                Editdialog.style.display = 'none';
                 overlay.style.display = 'none';
             });
 
@@ -91,7 +92,7 @@ $(document).ready(function() {
                     success: function(data) {
                         var url = URL.createObjectURL(data);
                         $('.videoPeth').attr('src', url);
-                        $('.dialog').show();
+                        $('.Videodialog').show();
                         $('.overlay').show();
                     },
                     error: function() {
@@ -101,7 +102,7 @@ $(document).ready(function() {
             });
 
             $(".closeDialogBtn").click(function() {
-                dialog.style.display = 'none';
+                Videodialog.style.display = 'none';
                 overlay.style.display = 'none';
             });
             //串接下載功能的API
@@ -117,9 +118,11 @@ $(document).ready(function() {
                 a.click();
                 document.body.removeChild(a);
             });
-            $(".btn_download").click(function() {
-               
+            $(".dialogBTN").click(function() {
+                Formdialog.style.display = 'block';
+                overlay.style.display = 'block';
             });
+           
         },
         error: function(error) {
             console.error("Error fetching data: ", error);

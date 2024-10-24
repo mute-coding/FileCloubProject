@@ -10,7 +10,36 @@
 </head>
 <body>
     <div id="dialogBTNBlock">
-        <button class="dialogBTN">新增檔案</button>
+        <button class="dialogBTN"><i class="fa-solid fa-plus"></i>新增檔案</button>
+    </div>
+    <div  class="Formdialog" >
+        <div id="container">
+            <div class="maintitle">
+                <h2>創建您的檔案吧!</h2>
+            </div>
+            <form class="form" >
+                <div  class="formitem">
+                    <label for="name">檔案名稱: </label>
+                    <input id="filename" type="text" >
+                </div>  
+                <div id="filetype" class="formitem">
+                    <label for="name">檔案類型: </label>
+                    <select id="selectItem" >
+                        <option value="圖片檔">圖片檔</option>
+                        <option value="影片檔">影片檔</option>
+                        <option value="聲音檔">聲音檔</option>
+                    </select>
+                </div>
+                <div  class="fileupload">
+                    <input type="file" id="uploadbtn" >
+                    <label for="uploadbtn" ><i class="fa-solid fa-upload"></i>檔案上傳</label>
+                    <span id="file-name"></span>
+                </div>
+                <div id="formsubmit" class="formitem">
+                    <button id="submitBtn" type="button">上傳</button>
+                </div>
+            </form>
+        </div>
     </div>
     <div id="tablecontainer">
         <div class="container">
@@ -32,11 +61,11 @@
                 </table>
         </div>
     </div>
-    <div class="dialog">
+    <div class="Videodialog">
         <img class="videoPeth" src="" width="1200" height="600">
         <button class="closeDialogBtn">Close</button>
     </div>
-    <div  class="dialog02">
+    <div  class="Editdialog">
         <label>修改檔案名稱:</label>
         <input id="updateInput" type="text">
         <button class="savebtn">儲存修改</button>

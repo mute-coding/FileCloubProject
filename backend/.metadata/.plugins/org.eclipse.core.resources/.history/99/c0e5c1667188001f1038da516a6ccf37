@@ -1,5 +1,0 @@
-package com.filecloud.api.SaltPassword;
-
-public class MD5util {
-
-}

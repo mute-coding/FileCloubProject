@@ -6,6 +6,49 @@
 body{
     background: #2c3e50;
 }
+/* 設置按鈕區域 */
+#dialogBTNBlock{
+    position: fixed;
+    top: 4%; /* 距離頂部的距離 */
+    left: 12.5%; /* 距離左側的距離 */
+}
+/* 設置按鈕樣式 */
+#dialogBTNBlock .dialogBTN{
+    background-color:#1E90FF ;
+    color: #fff;
+    padding: 20px 60px;
+    border: none; 
+    outline: none;
+    font-size: 20px; 
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+/* 設置邊框展開動畫初始值 */
+#dialogBTNBlock .dialogBTN::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: solid #1E90FF;
+    z-index: -1;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out; /* 添加過渡效果 */
+}
+
+/* 設置邊框展開動畫 */
+#dialogBTNBlock .dialogBTN:hover::before,
+#dialogBTNBlock .dialogBTN:focus::before {
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+}
+#dialogBTNBlock .dialogBTN i{
+    margin-right: 5px;
+}
 #tablecontainer{
     
     display: flex;
@@ -93,7 +136,7 @@ body{
     color: #fff;
     border-radius: 1px;
 }
-.dialog{
+.Videodialog{
     display: none;
     position: fixed;
     top: 50%;
@@ -104,7 +147,7 @@ body{
     border: 1px solid #ccc;
     z-index: 1000;
 }
-.dialog02{
+.Editdialog{
     display: none;
     position: fixed;
     top: 50%;
@@ -115,6 +158,7 @@ body{
     border: 1px solid #ccc;
     z-index: 1000;
 }
+
 .closeDialogBtn{
     margin-top: 15px ;
     margin-left: 485px ;
@@ -137,5 +181,109 @@ body{
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
+}
+
+/* 表單部分 */
+.Formdialog{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 25px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    width: 100%;
+
+}
+
+#container .maintitle{
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+}
+#container .form{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.form .formitem{
+    width: 100%;
+    margin-top: 20px;
+}
+.form .formitem label{
+    font-size: 1rem;
+    color: #333;
+}
+.form .formitem input {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+}
+.form .fileupload{
+    width: 100%;
+    margin-top: 20px;
+}
+input[type="file"]{
+    display: none;
+}
+.form .fileupload label{
+    display: inline-block;
+    color: #fff;
+    background-color: #1E90FF;
+    text-align: center;
+    padding: 15px 40px;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.form .fileupload label i{
+    font-size: 20px;
+    margin-right: 10px;
+}
+.form .fileupload span {
+    margin-left: 15px;
+    font-size: 1rem;
+    color: #333;
+}
+.form .formitem button {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+    color: #fff;
+    background-color:#1E90FF;
+    cursor: pointer;
+}
+.form .formitem button:hover{
+    background-color:#00008B;
+}
+
+.form .formitem select{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
 }
     
