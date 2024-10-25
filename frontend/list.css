@@ -79,7 +79,7 @@ body{
     color: #fff;
     position: sticky;
     top: 0;
-    z-index: 1; 
+    /* z-index: 1;  */
 }
 .tbl thead tr th{
     font-size: 1.2rem;
@@ -180,7 +180,8 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
+   
 }
 
 /* 表單部分 */
@@ -200,7 +201,16 @@ body{
     width: 100%;
 
 }
+.xmark{
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+}
+.xmark i{
+    font-size: 25px;
 
+}
 #container .maintitle{
     font-size: 1.5rem;
     color: #333;

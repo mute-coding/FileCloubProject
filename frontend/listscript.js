@@ -6,6 +6,15 @@ $(document).ready(function() {
     let Formdialog = document.querySelector('.Formdialog');
     let selectedFileId; // 全局變數來儲存選中的 fileid
     let selectedFileNAME; 
+    $(".dialogBTN").click(function() {
+        Formdialog.style.display = 'block';
+        overlay.style.display = 'block';
+    });
+    $(".xmarkBTN").click(function() {
+        Formdialog.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+   
     // 載入資料庫資料
     $.ajax({
         url: "http://localhost:8080/fileapi/getall",
@@ -118,10 +127,7 @@ $(document).ready(function() {
                 a.click();
                 document.body.removeChild(a);
             });
-            $(".dialogBTN").click(function() {
-                Formdialog.style.display = 'block';
-                overlay.style.display = 'block';
-            });
+          
            
         },
         error: function(error) {
