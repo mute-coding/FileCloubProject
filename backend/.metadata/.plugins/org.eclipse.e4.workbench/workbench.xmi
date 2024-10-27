@@ -210,7 +210,7 @@
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_zq4IzUUQEe-jrcOHHUyVig" elementId="org.eclipse.ui.editorss" selectedElement="_tBPy8IhnEe-7rNERKVJyYg">
       <children xsi:type="basic:PartSashContainer" xmi:id="_tBPy8IhnEe-7rNERKVJyYg" selectedElement="_zq4IzkUQEe-jrcOHHUyVig" horizontal="true">
-        <children xsi:type="basic:PartStack" xmi:id="_zq4IzkUQEe-jrcOHHUyVig" elementId="org.eclipse.e4.primaryDataStack" containerData="6284" selectedElement="_zq4Iz0UQEe-jrcOHHUyVig">
+        <children xsi:type="basic:PartStack" xmi:id="_zq4IzkUQEe-jrcOHHUyVig" elementId="org.eclipse.e4.primaryDataStack" containerData="6284" selectedElement="_zq4I0kUQEe-jrcOHHUyVig">
           <tags>org.eclipse.e4.primaryDataStack</tags>
           <tags>EditorStack</tags>
           <tags>active</tags>
@@ -219,11 +219,9 @@
             <tags>Editor</tags>
             <tags>removeOnHide</tags>
             <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
-            <tags>active</tags>
-            <tags>activeOnClose</tags>
           </children>
           <children xsi:type="basic:Part" xmi:id="_zq4I0EUQEe-jrcOHHUyVig" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="FileItemService.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FileItemService.java&quot; partName=&quot;FileItemService.java&quot; title=&quot;FileItemService.java&quot; tooltip=&quot;FileCloudAPI/src/main/java/com/filecloud/api/service/FileItemService.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/FileCloudAPI/src/main/java/com/filecloud/api/service/FileItemService.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1859&quot; selectionTopPixel=&quot;210&quot;/>&#xD;&#xA;&lt;/editor>"/>
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FileItemService.java&quot; partName=&quot;FileItemService.java&quot; title=&quot;FileItemService.java&quot; tooltip=&quot;FileCloudAPI/src/main/java/com/filecloud/api/service/FileItemService.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/FileCloudAPI/src/main/java/com/filecloud/api/service/FileItemService.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1859&quot; selectionTopPixel=&quot;420&quot;/>&#xD;&#xA;&lt;/editor>"/>
             <tags>Editor</tags>
             <tags>removeOnHide</tags>
             <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
@@ -235,10 +233,12 @@
             <tags>SpringBootPropertyEditor</tags>
           </children>
           <children xsi:type="basic:Part" xmi:id="_zq4I0kUQEe-jrcOHHUyVig" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="WEBController.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;WEBController.java&quot; partName=&quot;WEBController.java&quot; title=&quot;WEBController.java&quot; tooltip=&quot;FileCloudAPI/src/main/java/com/filecloud/api/controller/WEBController.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/FileCloudAPI/src/main/java/com/filecloud/api/controller/WEBController.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;55&quot; selectionOffset=&quot;1882&quot; selectionTopPixel=&quot;30&quot;/>&#xD;&#xA;&lt;/editor>"/>
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;WEBController.java&quot; partName=&quot;WEBController.java&quot; title=&quot;WEBController.java&quot; tooltip=&quot;FileCloudAPI/src/main/java/com/filecloud/api/controller/WEBController.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/FileCloudAPI/src/main/java/com/filecloud/api/controller/WEBController.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1975&quot; selectionTopPixel=&quot;330&quot;/>&#xD;&#xA;&lt;/editor>"/>
             <tags>Editor</tags>
             <tags>removeOnHide</tags>
             <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
+            <tags>active</tags>
+            <tags>activeOnClose</tags>
           </children>
           <children xsi:type="basic:Part" xmi:id="_zq4I1kUQEe-jrcOHHUyVig" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="FileItem.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
             <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FileItem.java&quot; partName=&quot;FileItem.java&quot; title=&quot;FileItem.java&quot; tooltip=&quot;FileCloudAPI/src/main/java/com/filecloud/api/model/FileItem.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/FileCloudAPI/src/main/java/com/filecloud/api/model/FileItem.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;157&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
@@ -456,7 +456,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_zq4JOkUQEe-jrcOHHUyVig" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_PQ9yF5LQEe-rXPF9ho4Cig" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_zrB6fkUQEe-jrcOHHUyVig"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_5sq20JNWEe-1npa3Xb1Cpg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_zrB6fkUQEe-jrcOHHUyVig"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_zq4JR0UQEe-jrcOHHUyVig" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -464,8 +464,8 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_zq4JSUUQEe-jrcOHHUyVig" elementId="org.eclipse.ui.workbench.edit">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_PQ9yHZLQEe-rXPF9ho4Cig" elementId="undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.png" tooltip="Undo" enabled="false" command="_zq-P5UUQEe-jrcOHHUyVig"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_PQ9yHpLQEe-rXPF9ho4Cig" elementId="redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.png" tooltip="Redo" enabled="false" command="_zq-QWEUQEe-jrcOHHUyVig"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_5sssAJNWEe-1npa3Xb1Cpg" elementId="undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.png" tooltip="Undo" enabled="false" command="_zq-P5UUQEe-jrcOHHUyVig"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_5stTEJNWEe-1npa3Xb1Cpg" elementId="redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.png" tooltip="Redo" enabled="false" command="_zq-QWEUQEe-jrcOHHUyVig"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_zq4JTUUQEe-jrcOHHUyVig" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -489,7 +489,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_zq4Je0UQEe-jrcOHHUyVig" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_PQ9yJJLQEe-rXPF9ho4Cig" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_zrB6OUUQEe-jrcOHHUyVig"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_5suhMpNWEe-1npa3Xb1Cpg" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_zrB6OUUQEe-jrcOHHUyVig"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_zq4Jh0UQEe-jrcOHHUyVig" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>

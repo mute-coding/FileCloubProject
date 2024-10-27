@@ -9,33 +9,37 @@
     <title>FileCloud</title>
 </head>
 <body>
-    <div id="dialogBTNBlock">
-        <button class="dialogBTN"><i class="fa-solid fa-plus"></i>新增檔案</button>
-    </div>
-    <div  class="Formdialog" >
+    <header>
+        <div id="dialogBTNBlock">
+            <button class="dialogBTN" aria-label="新增檔案"><i class="fa-solid fa-plus"></i>新增檔案</button>
+        </div>
+
+    </header>
+
+    <section class="Formdialog" aria-hidden="true">
         <div id="container">
             <div class="maintitle">
                 <h2>創建您的檔案吧!</h2>
             </div>
-            <div class="xmark" >
-                <i  class="fa-solid fa-xmark xmarkBTN"></i>
+            <div class="xmark" role="button" aria-label="關閉表單">
+                <i class="fa-solid fa-xmark xmarkBTN"></i>
             </div>
-            <form class="form" >
-                <div  class="formitem">
-                    <label for="name">檔案名稱: </label>
-                    <input id="filename" type="text" >
+            <form class="form" aria-labelledby="container">
+                <div class="formitem">
+                    <label for="filename">檔案名稱:</label>
+                    <input id="filename" type="text" name="filename" required>
                 </div>  
                 <div id="filetype" class="formitem">
-                    <label for="name">檔案類型: </label>
-                    <select id="selectItem" >
+                    <label for="selectItem">檔案類型:</label>
+                    <select id="selectItem" name="filetype">
                         <option value="圖片檔">圖片檔</option>
                         <option value="影片檔">影片檔</option>
                         <option value="聲音檔">聲音檔</option>
                     </select>
                 </div>
-                <div  class="fileupload">
-                    <input type="file" id="uploadbtn" >
-                    <label for="uploadbtn" ><i class="fa-solid fa-upload"></i>檔案上傳</label>
+                <div class="fileupload">
+                    <input type="file" id="uploadbtn" name="fileupload">
+                    <label for="uploadbtn"><i class="fa-solid fa-upload"></i>檔案上傳</label>
                     <span id="file-name"></span>
                 </div>
                 <div id="formsubmit" class="formitem">
@@ -43,37 +47,57 @@
                 </div>
             </form>
         </div>
-    </div>
-    <div id="tablecontainer">
-        <div class="container">
+    </section>
+
+    <main>
+        <div id="tablecontainer">
+            <div class="action">
+                <div class="icon" aria-label="用戶圖標" onclick="openMenu()">
+                    <i class="fa-solid fa-user"></i>
+                </div>  
+                
+                <div class="menu" >
+                    <ul>
+                        <li><h3 class="userTitle">帳戶名稱:</h3></li>
+                        <li><p class="userName">rainey1127</p></li>
+                        <li><button class="loginout" aria-label="登出">登出</button></li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="container">
                 <h2>你的檔案儲存庫</h2>
                 <table class="tbl">
                     <thead>
                         <tr>
-                            <th>檔案編號</th>
-                            <th>檔案名稱</th>
-                            <th>檔案類型</th>
-                            <th>檔案預覽</th>
-                            <th>其他功能</th>
-                            <th>上傳日期</th>
+                            <th scope="col">檔案編號</th>
+                            <th scope="col">檔案名稱</th>
+                            <th scope="col">檔案類型</th>
+                            <th scope="col">檔案預覽</th>
+                            <th scope="col">其他功能</th>
+                            <th scope="col">上傳日期</th>
                         </tr>
                     </thead>
-                    <tbody id="tablebody" >
-                        <!-- add javascript -->
+                    <tbody id="tablebody">
+                        <!-- JavaScript will add rows here -->
                     </tbody>
                 </table>
+            </div>
         </div>
+    </main>
+
+    <div class="Videodialog" aria-hidden="true">
+        <img class="videoPeth" src="" alt="預覽圖片" width="1200" height="600">
+        <button class="closeDialogBtn" aria-label="關閉">Close</button>
     </div>
-    <div class="Videodialog">
-        <img class="videoPeth" src="" width="1200" height="600">
-        <button class="closeDialogBtn">Close</button>
+    
+    <div class="Editdialog" aria-hidden="true">
+        <label for="updateInput">修改檔案名稱:</label>
+        <input id="updateInput" type="text" name="updateFileName">
+        <button class="savebtn" aria-label="儲存修改">儲存修改</button>
     </div>
-    <div  class="Editdialog">
-        <label>修改檔案名稱:</label>
-        <input id="updateInput" type="text">
-        <button class="savebtn">儲存修改</button>
-    </div>
-    <div  class="overlay"></div>
+
+    <div class="overlay" aria-hidden="true"></div>
 </body>
 <script src="listscript.js"></script>
 <script src="indexscript.js"></script>

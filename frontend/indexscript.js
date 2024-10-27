@@ -23,6 +23,7 @@ $.ajax({
         $("#filename, #selectItem").val('');
         $("#uploadbtn").val(null);
         $('#file-name').text('');
+
     },
     error: function(error) {
         console.error("資料儲存失敗", error);

@@ -1,3 +1,7 @@
+function openMenu(){
+    const menuToggle = document.querySelector('.menu');
+    menuToggle.classList.toggle('active');
+}
 $(document).ready(function() {
     let Videodialog = document.querySelector('.Videodialog');
     let Editdialog = document.querySelector('.Editdialog');
@@ -14,6 +18,7 @@ $(document).ready(function() {
         Formdialog.style.display = 'none';
         overlay.style.display = 'none';
     });
+
    
     // 載入資料庫資料
     $.ajax({
