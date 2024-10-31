@@ -1,26 +1,63 @@
+let Formdialog = document.querySelector('.Formdialog');
+let Videodialog = document.querySelector('.Videodialog');
+let Editdialog = document.querySelector('.Editdialog');
+let overlay = document.querySelector('.overlay');
+let imgElement =document.querySelector('.videoPeth'); // 獲取 img 元素
+let selectedFileId; // 全局變數來儲存選中的 fileid
+let selectedFileNAME; 
+$(".dialogBTN").click(function() {
+    Formdialog.style.display = 'block';
+    overlay.style.display = 'block';
+});
+$(".xmarkBTN").click(function() {
+    Formdialog.style.display = 'none';
+    overlay.style.display = 'none';
+});
+ 
+document.getElementById('uploadbtn').addEventListener('change', function() {
+    const fileName = this.files[0] ? this.files[0].name : '未選擇文件';
+    document.getElementById('file-name').textContent = fileName;
+});
 function openMenu(){
     const menuToggle = document.querySelector('.menu');
     menuToggle.classList.toggle('active');
 }
-$(document).ready(function() {
-    let Videodialog = document.querySelector('.Videodialog');
-    let Editdialog = document.querySelector('.Editdialog');
-    let overlay = document.querySelector('.overlay');
-    let imgElement =document.querySelector('.videoPeth'); // 獲取 img 元素
-    let Formdialog = document.querySelector('.Formdialog');
-    let selectedFileId; // 全局變數來儲存選中的 fileid
-    let selectedFileNAME; 
-    $(".dialogBTN").click(function() {
-        Formdialog.style.display = 'block';
-        overlay.style.display = 'block';
-    });
-    $(".xmarkBTN").click(function() {
-        Formdialog.style.display = 'none';
-        overlay.style.display = 'none';
-    });
+document.getElementById('submitBtn').addEventListener('click', function() {
+    const filename = document.getElementById('filename').value;
+    const fileType = document.getElementById('selectItem').value;
+    const file = document.getElementById('uploadbtn').files[0];
+    
+    const formData = new FormData();
+    formData.append("fileName", filename);
+    formData.append("fileType", fileType);
+    formData.append("fileUrl", file);
+    
+    //創建資料
+    $.ajax({
+        url: "http://localhost:8080/fileapi/createfile",
+        type: "POST",
+        processData: false,
+        contentType: false,
+        data: formData,
+        success: function(data) {
+            console.log("資料儲存成功", data);
 
-   
-    // 載入資料庫資料
+            // 清空表單
+            $("#filename, #selectItem").val('');
+            $("#uploadbtn").val(null);
+            $('#file-name').text('');
+
+            // 立即執行載入資料庫資料
+            loadDatabaseData(); // Call the function to load data from the database
+        },
+        error: function(error) {
+            console.error("資料儲存失敗", error);
+        }
+    });
+});
+
+// 定義載入資料庫資料的函數
+function loadDatabaseData() {
     $.ajax({
         url: "http://localhost:8080/fileapi/getall",
         type: "GET",
@@ -55,7 +92,7 @@ $(document).ready(function() {
                         type: "DELETE",
                         success: function(result) {
                             alert("檔案已刪除");
-                            location.reload(); // 刷新頁面以顯示更新後的表格
+                            loadDatabaseData(); // 刷新資料表
                         },
                         error: function(error) {
                             console.error("Error deleting file: ", error);
@@ -82,7 +119,7 @@ $(document).ready(function() {
                     data: { fileName: newFileName }, 
                     success: function(data) {
                         alert("檔案名稱已更新");
-                        location.reload(); 
+                        loadDatabaseData(); // 更新後重新載入資料
                     },
                     error: function(error) {
                         console.error("Error updating file: ", error);
@@ -94,7 +131,6 @@ $(document).ready(function() {
             });
 
             // 綁定儲存修改按鈕的點擊事件
-
             $(".btn_previwe").click(function() {
                 selectedFileNAME = $(this).data('id');
                 $.ajax({
@@ -112,13 +148,14 @@ $(document).ready(function() {
                     error: function() {
                         alert('Error loading image');
                     }
-                })
+                });
             });
 
             $(".closeDialogBtn").click(function() {
                 Videodialog.style.display = 'none';
                 overlay.style.display = 'none';
             });
+
             //串接下載功能的API
             $(".btn_download").click(function() {
                 selectedFileNAME = $(this).data('id');  // 使用 data('id') 获取文件名
@@ -133,10 +170,14 @@ $(document).ready(function() {
                 document.body.removeChild(a);
             });
           
-           
         },
         error: function(error) {
             console.error("Error fetching data: ", error);
         }
     });
+}
+
+$(document).ready(function() {
+    // 這裡可以初始化載入資料
+    loadDatabaseData(); // 初次載入資料
 });

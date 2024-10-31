@@ -3,37 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>FileCloud</title>
 </head>
 <body>
-  <div class="action" >
-    <div class="icon" >
-        <i class="fa-solid fa-user"></i>
-    </div>  
-  
-  <div class="menu" >
-    <ul>
-        <li ><h3 class="userTitle">帳戶名稱:</h3></li>
-        <li ><p class="userName">rainey1127</p></li>
-        <li><button class="editProfile" >修改會員資料</button></li>
-        <li><button class="deleteProfile" >刪除帳戶</button></li>
-    </ul>
-  </div>
-</div>
+
     <div id="mainContainer">
         <div id="container">
             <div class="maintitle">
-                <h2>創建您的檔案吧!</h2>
+                <h2>FileCloud</h2>
             </div>
             <form class="form" >
                 <div  class="formitem">
-                    <label for="name">檔案名稱: </label>
-                    <input id="filename" type="text" >
+                    <label for="name">使用者名稱: </label>
+                    <input  type="text" >
                 </div>  
-                <div id="filetype" class="formitem">
+                <div  class="formitem">
+                    <label for="name">密碼: </label>
+                    <input  type="text" >
+                </div>  
+                <!-- <div id="filetype" class="formitem">
                     <label for="name">檔案類型: </label>
                     <select id="selectItem" >
                         <option value="圖片檔">圖片檔</option>
@@ -45,14 +36,14 @@
                     <input type="file" id="uploadbtn" >
                     <label for="uploadbtn" ><i class="fa-solid fa-upload"></i>檔案上傳</label>
                     <span id="file-name"></span>
-                </div>
+                </div> -->
                 <div id="formsubmit" class="formitem">
-                    <button id="submitBtn" type="button">上傳</button>
+                    <button id="submitBtn" type="button">登入</button>
                 </div>
             </form>
-            <div  class="page">
+            <!-- <div  class="page">
                 <a href="/FileCloudProject/frontend/list.html"><i class="fa-solid fa-door-open"></i>前往儲存庫</a>
-            </div>
+            </div> -->
         </div>
     </div>
 </body>
