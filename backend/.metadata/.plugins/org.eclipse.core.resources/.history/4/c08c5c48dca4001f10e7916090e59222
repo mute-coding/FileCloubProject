@@ -1,0 +1,12 @@
+package com.filecloud.api;
+
+import com.filecloud.api.SaltPassword.MD5util;
+
+public class MD5test {
+	  public static void main(String[] args) {
+	        String password = "rainey1085123"; // 要測試的密碼
+	        String salt = "c480e3b7f1bf9a4fca55478cc6ee9b38"; // 測試的鹽值
+	        String encryptedPassword = MD5util.md5(password, salt); // 調用 MD5 加密方法
+	        System.out.println("加密後的密碼: " + encryptedPassword); // 輸出結果
+	    }
+}

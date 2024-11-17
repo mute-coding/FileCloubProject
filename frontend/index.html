@@ -12,38 +12,47 @@
 
     <div id="mainContainer">
         <div id="container">
-            <div class="maintitle">
+            <div class="indexMaintitle">
                 <h2>FileCloud</h2>
             </div>
             <form class="form" >
                 <div  class="formitem">
-                    <label for="name">使用者名稱: </label>
-                    <input  type="text" >
+                    <input  type="text" placeholder="請輸入使用者名稱">
                 </div>  
                 <div  class="formitem">
-                    <label for="name">密碼: </label>
-                    <input  type="text" >
+                    <input  type="text" placeholder="請輸入密碼">
                 </div>  
-                <!-- <div id="filetype" class="formitem">
-                    <label for="name">檔案類型: </label>
-                    <select id="selectItem" >
-                        <option value="圖片檔">圖片檔</option>
-                        <option value="影片檔">影片檔</option>
-                        <option value="聲音檔">聲音檔</option>
-                    </select>
-                </div>
-                <div  class="fileupload">
-                    <input type="file" id="uploadbtn" >
-                    <label for="uploadbtn" ><i class="fa-solid fa-upload"></i>檔案上傳</label>
-                    <span id="file-name"></span>
-                </div> -->
+
                 <div id="formsubmit" class="formitem">
-                    <button id="submitBtn" type="button">登入</button>
+                    <button id="LoginsubmitBtn" type="button">登入</button>
                 </div>
             </form>
-            <!-- <div  class="page">
-                <a href="/FileCloudProject/frontend/list.html"><i class="fa-solid fa-door-open"></i>前往儲存庫</a>
-            </div> -->
+            <div class="registerPoint" >
+                <p>還不是會員嗎?</p>
+                <a id="openRegisterDialog" class="openRegisterDialog" href="#" >註冊成為會員</a>
+            </div>
+            <section class="RegisterDialog" aria-hidden="true">
+                <div id="container">
+                    <div class="maintitle">
+                        <h2>開始註冊會員吧!</h2>
+                    </div>
+                    <div class="xmark" role="button" aria-label="關閉表單">
+                        <i class="fa-solid fa-xmark xmarkBTN"></i>
+                    </div>
+                    <form class="form" aria-labelledby="container">
+                        <div class="formitem">
+                            <input id="userNameInput" class="filename" type="text" name="filename" placeholder="請輸入使用者名稱" required>
+                            <input id="passwordInput" class="filename" type="text" name="filename" placeholder="請輸入密碼" required>
+                            <input id="phoneInput" class="filename" type="text" name="filename" placeholder="請輸入手機號碼" required>
+                            <input id="emailInput" class="filename" type="text" name="filename" placeholder="請輸入電子郵件" required>
+                        </div>  
+                        <div id="formsubmit" class="formitem">
+                            <button id="submitBtn" type="button">註冊</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <div class="overlay" aria-hidden="true"></div>
         </div>
     </div>
 </body>

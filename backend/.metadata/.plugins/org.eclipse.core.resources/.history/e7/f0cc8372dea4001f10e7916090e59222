@@ -1,0 +1,75 @@
+package com.filecloud.api.service;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.filecloud.api.SaltPassword.MD5util;
+import com.filecloud.api.SaltPassword.UUIDutil;
+import com.filecloud.api.model.UserList;
+import com.filecloud.api.repository.UserListRepository;
+
+@Service
+public class UserListService {
+	@Autowired
+	private UserListRepository userListRepository;
+	public void createUser(String username,
+							String password,
+							String userphone,
+							String useremile) {
+		UserList userList = new UserList();
+		Date currentDate = new Date();
+		
+		userList.setUser_name(username);
+		String salt = UUIDutil.uuid();
+		userList.setSaltPassword(salt);
+		String md5Password = MD5util.md5(userList.getPassword(),salt);
+		userList.setPassword(md5Password);
+		userList.setUser_phone(userphone);
+		userList.setUser_email(useremile);
+		userList.setIsDelete(0);
+		userList.setCreated_user(username);
+		userList.setCreated_time(currentDate);
+		userList.setModified_user(username);
+		userList.setModified_time(currentDate);
+		userListRepository.createUser(userList);
+	}
+	public List<UserList> login(String username,String password){
+		// 1. 根據用戶名查詢用戶資料
+        List<UserList> userList = userListRepository.GetDataByUserName(username);
+        
+        // 檢查用戶是否存在
+        if (userList == null || userList.isEmpty()) {
+            throw new IllegalArgumentException("使用者帳戶不存在");
+        }
+
+        // 2. 取出用戶資料
+        UserList userData = userList.get(0);
+
+        // 檢查帳號是否被刪除
+        if (userData.getIsDelete() != null && userData.getIsDelete() == 1) {
+            throw new IllegalArgumentException("使用者帳戶已被刪除");
+        }
+
+        // 3. 獲取資料庫中的salt
+        String salt = userData.getSaltPassword();
+        
+        // 4. 使用用戶輸入的密碼和資料庫中的salt進行加密
+        String md5Password = MD5util.md5(password, salt);
+        
+        // 5. 比對加密後的密碼與資料庫中儲存的密碼
+        if (!userData.getPassword().equals(md5Password)) {
+            throw new IllegalArgumentException("密碼輸入錯誤，請重新輸入");
+        }
+
+        // 6. 返回用戶資料
+        return userList;
+    }
+	
+	public List<UserList> GetDataByUserName(String username){
+		return userListRepository.GetDataByUserName(username);
+	}
+}
